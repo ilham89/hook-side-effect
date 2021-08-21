@@ -1,7 +1,7 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import { Container, InputBase, makeStyles } from "@material-ui/core";
-import CardMovie from "./components/cardMovie";
+import Card from "./components/card";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -84,7 +84,7 @@ export default function App() {
           </div>
           <div>
             <div style={{ marginBottom: 16, padding: "0px 16px" }}>
-              <CardMovie />
+              <Card />
             </div>
           </div>
         </div>

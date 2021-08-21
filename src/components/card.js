@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function CardMovie(props) {
-  const { data } = props;
+function Card() {
   const classes = useStyles();
   const [detail, setDetail] = useState(false);
 
@@ -76,4 +75,4 @@ function CardMovie(props) {
   );
 }
 
-export default CardMovie;
+export default Card;
