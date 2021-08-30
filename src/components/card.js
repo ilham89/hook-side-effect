@@ -4,7 +4,7 @@ import {
   Typography,
   Collapse,
   ListItem,
-  ListItemText
+  ListItemText,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLess from "@material-ui/icons/ExpandLess";
@@ -21,26 +21,27 @@ const useStyles = makeStyles((theme) => ({
     transition: "transform .6s",
     "&:hover": {
       transform: "scale(1.02)",
-      zIndex: -1
-    }
+      zIndex: -1,
+    },
   },
   img: {
     height: "125px",
     width: "100%",
     borderTopRightRadius: 8,
     borderTopLeftRadius: 8,
-    marginBottom: 10
+    marginBottom: 10,
   },
   detail: {
     display: "flex",
     justifyContent: "center",
     width: "100%",
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  },
 }));
 
-function Card() {
+function Card(props) {
   const classes = useStyles();
+  const { data } = props;
   const [detail, setDetail] = useState(false);
 
   const handleDetail = () => {
@@ -48,21 +49,21 @@ function Card() {
   };
   return (
     <div className={classes.cardWrapper}>
-      <img src={Spider} className={classes.img} alt="img" />
+      <img src={data.thumb} className={classes.img} alt="img" />
       <Typography align="center" variant="subtitle2">
-        Judul artikel
+        {data.title}
       </Typography>
       <Collapse in={detail} timeout="auto" unmountOnExit>
         <ListItem>
-          <Typography variant="caption">Deskripsi</Typography>
+          <Typography variant="caption">{data.desc}</Typography>
         </ListItem>
         <ListItem>
-          <ListItemText primary="tambahan" />
-          <ListItemText primary="tambahan" />
+          <ListItemText primary="Author" />
+          <ListItemText primary={data.author} />
         </ListItem>
         <ListItem>
-          <ListItemText primary="tambahan" />
-          <ListItemText primary="tambahan" />
+          <ListItemText primary="Tag" />
+          <ListItemText primary={data.tag} />
         </ListItem>
       </Collapse>
 
